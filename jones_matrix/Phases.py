@@ -12,8 +12,8 @@ import numba as nb
 def compute_phiex(beta,
                   ordinary_n,
                   extraordinary_n,
-                  wavelen=0.650,
-                  resolution=0.011):
+                  wavelen,
+                  resolution):
     """
     Returns the extraordinary phase shift caused by a field.
     Computations in microns.
@@ -28,7 +28,7 @@ def compute_phiex(beta,
 
 # A the ordinary phase component is constant.
 @nb.njit(nogil=True)
-def compute_phiord(ordinary_n, wavelen=0.650, resolution=0.011):
+def compute_phiord(ordinary_n, wavelen, resolution):
     """
     Returns the ordinary phase shift caused by a field.
     Computations in microns.
