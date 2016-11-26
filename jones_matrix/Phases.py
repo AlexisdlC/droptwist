@@ -20,10 +20,10 @@ def compute_phiex(beta,
     beta is the angle of the director to the optical (z) axis.
     """
     _nExtraBeta_num = ordinary_n*extraordinary_n
-    _nExtraBeta = (_nExtraBeta_num /
-                   ((np.sqrt(np.sin(beta)*ordinary_n)**2 +
-                     (np.cos(beta)*extraordinary_n)**2)))
-    return 2*np.pi*_nExtraBeta*resolution/wavelen
+    _nExtraBeta = _nExtraBeta_num /
+                   (np.sqrt((np.sin(beta)*ordinary_n)**2 +
+                     (np.cos(beta)*extraordinary_n)**2))
+    return 2*np.pi*np.sqrt(_nExtraBeta)*resolution/wavelen
 
 
 # A the ordinary phase component is constant.
